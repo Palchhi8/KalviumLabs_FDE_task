@@ -31,7 +31,9 @@ A simple invoicing system built with ASP.NET Core 8 and SQL Server for managing 
 1. Clone the repository
    
 2.The recipient can regenerate the removed folders by running:
+
 dotnet restore
+
 dotnet build
 
 
