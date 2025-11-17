@@ -1,0 +1,186 @@
+nohup: ignoring input
+Building...
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (39ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Migrations[20411]
+      Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (98ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      DECLARE @result int;
+      EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+      SELECT @result
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+      BEGIN
+          CREATE TABLE [__EFMigrationsHistory] (
+              [MigrationId] nvarchar(150) NOT NULL,
+              [ProductVersion] nvarchar(32) NOT NULL,
+              CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+          );
+      END;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (64ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: Microsoft.EntityFrameworkCore.Migrations[20405]
+      No migrations were applied. The database is already up to date.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      DECLARE @result int;
+      EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+      SELECT @result
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5280
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Palchhi Jain\Desktop\Kalvium_Labs FDE TASK\InvoicingSystem
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: InvoicingSystem.Data.ApiKeyAuthenticationMiddleware[0]
+      Successful API Key authentication for /api/customers
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      SELECT [c].[CustomerId], [c].[BillingAddress], [c].[City], [c].[Country], [c].[CreatedDate], [c].[Email], [c].[FirstName], [c].[LastName], [c].[Phone], [c].[ShippingAddress], [c].[ShippingCity], [c].[ShippingCountry], [c].[ShippingState], [c].[ShippingZipCode], [c].[State], [c].[UpdatedDate], [c].[ZipCode]
+      FROM [Customers] AS [c]
+      ORDER BY [c].[LastName], [c].[FirstName]
+info: InvoicingSystem.Data.ApiKeyAuthenticationMiddleware[0]
+      Successful API Key authentication for /api/customers
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (50ms) [Parameters=[@__createCustomerDto_Email_0='?' (Size = 255)], CommandType='Text', CommandTimeout='60']
+      SELECT TOP(1) [c].[CustomerId], [c].[BillingAddress], [c].[City], [c].[Country], [c].[CreatedDate], [c].[Email], [c].[FirstName], [c].[LastName], [c].[Phone], [c].[ShippingAddress], [c].[ShippingCity], [c].[ShippingCountry], [c].[ShippingState], [c].[ShippingZipCode], [c].[State], [c].[UpdatedDate], [c].[ZipCode]
+      FROM [Customers] AS [c]
+      WHERE [c].[Email] = @__createCustomerDto_Email_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (44ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (Size = 100), @p2='?' (Size = 100), @p3='?' (DbType = DateTime2), @p4='?' (Size = 255), @p5='?' (Size = 100), @p6='?' (Size = 100), @p7='?' (Size = 20), @p8='?' (Size = 255), @p9='?' (Size = 100), @p10='?' (Size = 100), @p11='?' (Size = 100), @p12='?' (Size = 20), @p13='?' (Size = 100), @p14='?' (DbType = DateTime2), @p15='?' (Size = 20)], CommandType='Text', CommandTimeout='60']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [Customers] ([BillingAddress], [City], [Country], [CreatedDate], [Email], [FirstName], [LastName], [Phone], [ShippingAddress], [ShippingCity], [ShippingCountry], [ShippingState], [ShippingZipCode], [State], [UpdatedDate], [ZipCode])
+      OUTPUT INSERTED.[CustomerId]
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+info: InvoicingSystem.Controllers.CustomersController[0]
+      Customer 6 created successfully
+info: InvoicingSystem.Data.ApiKeyAuthenticationMiddleware[0]
+      Successful API Key authentication for /api/invoices
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60']
+      SELECT TOP(1) [c].[CustomerId], [c].[BillingAddress], [c].[City], [c].[Country], [c].[CreatedDate], [c].[Email], [c].[FirstName], [c].[LastName], [c].[Phone], [c].[ShippingAddress], [c].[ShippingCity], [c].[ShippingCountry], [c].[ShippingState], [c].[ShippingZipCode], [c].[State], [c].[UpdatedDate], [c].[ZipCode]
+      FROM [Customers] AS [c]
+      WHERE [c].[CustomerId] = @__p_0
+info: InvoicingSystem.Services.StoredProcedureService[0]
+      Adding invoice for customer 6 with 2 items
+info: InvoicingSystem.Services.StoredProcedureService[0]
+      Successfully created invoice with ID: 10
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (16ms) [Parameters=[@__invoiceId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60']
+      SELECT [s].[InvoiceId], [s].[BillingAddress], [s].[BillingCity], [s].[BillingCountry], [s].[BillingState], [s].[BillingZipCode], [s].[CreatedDate], [s].[CustomerId], [s].[DueDate], [s].[EmailSent], [s].[EmailSentDate], [s].[InvoiceDate], [s].[InvoiceNumber], [s].[Notes], [s].[ShippingAddress], [s].[ShippingCity], [s].[ShippingCountry], [s].[ShippingState], [s].[ShippingZipCode], [s].[Status], [s].[Subtotal], [s].[TaxAmount], [s].[TaxRate], [s].[TotalAmount], [s].[UpdatedDate], [s].[CustomerId0], [s].[BillingAddress0], [s].[City], [s].[Country], [s].[CreatedDate0], [s].[Email], [s].[FirstName], [s].[LastName], [s].[Phone], [s].[ShippingAddress0], [s].[ShippingCity0], [s].[ShippingCountry0], [s].[ShippingState0], [s].[ShippingZipCode0], [s].[State], [s].[UpdatedDate0], [s].[ZipCode], [i0].[InvoiceItemId], [i0].[CreatedDate], [i0].[Description], [i0].[DiscountAmount], [i0].[DiscountPercentage], [i0].[InvoiceId], [i0].[LineTotal], [i0].[ProductName], [i0].[Quantity], [i0].[Unit], [i0].[UnitPrice]
+      FROM (
+          SELECT TOP(1) [i].[InvoiceId], [i].[BillingAddress], [i].[BillingCity], [i].[BillingCountry], [i].[BillingState], [i].[BillingZipCode], [i].[CreatedDate], [i].[CustomerId], [i].[DueDate], [i].[EmailSent], [i].[EmailSentDate], [i].[InvoiceDate], [i].[InvoiceNumber], [i].[Notes], [i].[ShippingAddress], [i].[ShippingCity], [i].[ShippingCountry], [i].[ShippingState], [i].[ShippingZipCode], [i].[Status], [i].[Subtotal], [i].[TaxAmount], [i].[TaxRate], [i].[TotalAmount], [i].[UpdatedDate], [c].[CustomerId] AS [CustomerId0], [c].[BillingAddress] AS [BillingAddress0], [c].[City], [c].[Country], [c].[CreatedDate] AS [CreatedDate0], [c].[Email], [c].[FirstName], [c].[LastName], [c].[Phone], [c].[ShippingAddress] AS [ShippingAddress0], [c].[ShippingCity] AS [ShippingCity0], [c].[ShippingCountry] AS [ShippingCountry0], [c].[ShippingState] AS [ShippingState0], [c].[ShippingZipCode] AS [ShippingZipCode0], [c].[State], [c].[UpdatedDate] AS [UpdatedDate0], [c].[ZipCode]
+          FROM [Invoices] AS [i]
+          INNER JOIN [Customers] AS [c] ON [i].[CustomerId] = [c].[CustomerId]
+          WHERE [i].[InvoiceId] = @__invoiceId_0
+      ) AS [s]
+      LEFT JOIN [InvoiceItems] AS [i0] ON [s].[InvoiceId] = [i0].[InvoiceId]
+      ORDER BY [s].[InvoiceId], [s].[CustomerId0]
+info: InvoicingSystem.Services.EmailService[0]
+      SIMULATION: Email would be sent to testcustomer@example.com for Invoice INV-20251116-0008
+info: InvoicingSystem.Services.EmailService[0]
+      SIMULATION: Email successfully sent to testcustomer@example.com for Invoice INV-20251116-0008
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='60']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      UPDATE [Invoices] SET [EmailSent] = @p0, [EmailSentDate] = @p1, [UpdatedDate] = @p2
+      OUTPUT 1
+      WHERE [InvoiceId] = @p3;
+info: InvoicingSystem.Controllers.InvoicesController[0]
+      Invoice INV-20251116-0008 created successfully for customer 6
+info: InvoicingSystem.Data.ApiKeyAuthenticationMiddleware[0]
+      Successful API Key authentication for /api/invoices/calculate-totals
+info: InvoicingSystem.Services.StoredProcedureService[0]
+      Calculating totals for 2 items with tax rate 12.5%
+info: InvoicingSystem.Services.StoredProcedureService[0]
+      Calculated totals - Subtotal: ₹ 1,900.00, Tax: ₹ 237.50, Total: ₹ 2,137.50
+info: InvoicingSystem.Data.ApiKeyAuthenticationMiddleware[0]
+      Successful API Key authentication for /api/invoices/10
+info: InvoicingSystem.Services.StoredProcedureService[0]
+      Editing invoice 10 for customer 6
+info: InvoicingSystem.Services.StoredProcedureService[0]
+      Invoice 10 edit result: True
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (15ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60']
+      SELECT [s].[InvoiceId], [s].[BillingAddress], [s].[BillingCity], [s].[BillingCountry], [s].[BillingState], [s].[BillingZipCode], [s].[CreatedDate], [s].[CustomerId], [s].[DueDate], [s].[EmailSent], [s].[EmailSentDate], [s].[InvoiceDate], [s].[InvoiceNumber], [s].[Notes], [s].[ShippingAddress], [s].[ShippingCity], [s].[ShippingCountry], [s].[ShippingState], [s].[ShippingZipCode], [s].[Status], [s].[Subtotal], [s].[TaxAmount], [s].[TaxRate], [s].[TotalAmount], [s].[UpdatedDate], [s].[CustomerId0], [s].[BillingAddress0], [s].[City], [s].[Country], [s].[CreatedDate0], [s].[Email], [s].[FirstName], [s].[LastName], [s].[Phone], [s].[ShippingAddress0], [s].[ShippingCity0], [s].[ShippingCountry0], [s].[ShippingState0], [s].[ShippingZipCode0], [s].[State], [s].[UpdatedDate0], [s].[ZipCode], [i0].[InvoiceItemId], [i0].[CreatedDate], [i0].[Description], [i0].[DiscountAmount], [i0].[DiscountPercentage], [i0].[InvoiceId], [i0].[LineTotal], [i0].[ProductName], [i0].[Quantity], [i0].[Unit], [i0].[UnitPrice]
+      FROM (
+          SELECT TOP(1) [i].[InvoiceId], [i].[BillingAddress], [i].[BillingCity], [i].[BillingCountry], [i].[BillingState], [i].[BillingZipCode], [i].[CreatedDate], [i].[CustomerId], [i].[DueDate], [i].[EmailSent], [i].[EmailSentDate], [i].[InvoiceDate], [i].[InvoiceNumber], [i].[Notes], [i].[ShippingAddress], [i].[ShippingCity], [i].[ShippingCountry], [i].[ShippingState], [i].[ShippingZipCode], [i].[Status], [i].[Subtotal], [i].[TaxAmount], [i].[TaxRate], [i].[TotalAmount], [i].[UpdatedDate], [c].[CustomerId] AS [CustomerId0], [c].[BillingAddress] AS [BillingAddress0], [c].[City], [c].[Country], [c].[CreatedDate] AS [CreatedDate0], [c].[Email], [c].[FirstName], [c].[LastName], [c].[Phone], [c].[ShippingAddress] AS [ShippingAddress0], [c].[ShippingCity] AS [ShippingCity0], [c].[ShippingCountry] AS [ShippingCountry0], [c].[ShippingState] AS [ShippingState0], [c].[ShippingZipCode] AS [ShippingZipCode0], [c].[State], [c].[UpdatedDate] AS [UpdatedDate0], [c].[ZipCode]
+          FROM [Invoices] AS [i]
+          INNER JOIN [Customers] AS [c] ON [i].[CustomerId] = [c].[CustomerId]
+          WHERE [i].[InvoiceId] = @__id_0
+      ) AS [s]
+      LEFT JOIN [InvoiceItems] AS [i0] ON [s].[InvoiceId] = [i0].[InvoiceId]
+      ORDER BY [s].[InvoiceId], [s].[CustomerId0]
+info: InvoicingSystem.Controllers.InvoicesController[0]
+      Invoice INV-20251116-0008 updated successfully
+info: InvoicingSystem.Data.ApiKeyAuthenticationMiddleware[0]
+      Successful API Key authentication for /api/invoices/10/void
+info: InvoicingSystem.Services.StoredProcedureService[0]
+      Voiding invoice 10
+info: InvoicingSystem.Services.StoredProcedureService[0]
+      Invoice 10 void result: True
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60']
+      SELECT [s].[InvoiceId], [s].[BillingAddress], [s].[BillingCity], [s].[BillingCountry], [s].[BillingState], [s].[BillingZipCode], [s].[CreatedDate], [s].[CustomerId], [s].[DueDate], [s].[EmailSent], [s].[EmailSentDate], [s].[InvoiceDate], [s].[InvoiceNumber], [s].[Notes], [s].[ShippingAddress], [s].[ShippingCity], [s].[ShippingCountry], [s].[ShippingState], [s].[ShippingZipCode], [s].[Status], [s].[Subtotal], [s].[TaxAmount], [s].[TaxRate], [s].[TotalAmount], [s].[UpdatedDate], [s].[CustomerId0], [s].[BillingAddress0], [s].[City], [s].[Country], [s].[CreatedDate0], [s].[Email], [s].[FirstName], [s].[LastName], [s].[Phone], [s].[ShippingAddress0], [s].[ShippingCity0], [s].[ShippingCountry0], [s].[ShippingState0], [s].[ShippingZipCode0], [s].[State], [s].[UpdatedDate0], [s].[ZipCode], [i0].[InvoiceItemId], [i0].[CreatedDate], [i0].[Description], [i0].[DiscountAmount], [i0].[DiscountPercentage], [i0].[InvoiceId], [i0].[LineTotal], [i0].[ProductName], [i0].[Quantity], [i0].[Unit], [i0].[UnitPrice]
+      FROM (
+          SELECT TOP(1) [i].[InvoiceId], [i].[BillingAddress], [i].[BillingCity], [i].[BillingCountry], [i].[BillingState], [i].[BillingZipCode], [i].[CreatedDate], [i].[CustomerId], [i].[DueDate], [i].[EmailSent], [i].[EmailSentDate], [i].[InvoiceDate], [i].[InvoiceNumber], [i].[Notes], [i].[ShippingAddress], [i].[ShippingCity], [i].[ShippingCountry], [i].[ShippingState], [i].[ShippingZipCode], [i].[Status], [i].[Subtotal], [i].[TaxAmount], [i].[TaxRate], [i].[TotalAmount], [i].[UpdatedDate], [c].[CustomerId] AS [CustomerId0], [c].[BillingAddress] AS [BillingAddress0], [c].[City], [c].[Country], [c].[CreatedDate] AS [CreatedDate0], [c].[Email], [c].[FirstName], [c].[LastName], [c].[Phone], [c].[ShippingAddress] AS [ShippingAddress0], [c].[ShippingCity] AS [ShippingCity0], [c].[ShippingCountry] AS [ShippingCountry0], [c].[ShippingState] AS [ShippingState0], [c].[ShippingZipCode] AS [ShippingZipCode0], [c].[State], [c].[UpdatedDate] AS [UpdatedDate0], [c].[ZipCode]
+          FROM [Invoices] AS [i]
+          INNER JOIN [Customers] AS [c] ON [i].[CustomerId] = [c].[CustomerId]
+          WHERE [i].[InvoiceId] = @__id_0
+      ) AS [s]
+      LEFT JOIN [InvoiceItems] AS [i0] ON [s].[InvoiceId] = [i0].[InvoiceId]
+      ORDER BY [s].[InvoiceId], [s].[CustomerId0]
+info: InvoicingSystem.Controllers.InvoicesController[0]
+      Invoice INV-20251116-0008 voided successfully
+info: InvoicingSystem.Data.ApiKeyAuthenticationMiddleware[0]
+      Successful API Key authentication for /api/invoices/search
+info: InvoicingSystem.Services.StoredProcedureService[0]
+      Searching invoices - Customer: 6, Status: Void, Page: 1
+info: InvoicingSystem.Services.StoredProcedureService[0]
+      Found 1 invoices, total count: 0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (32ms) [Parameters=[@__invoiceIds_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='60']
+      SELECT [i].[InvoiceId], [i].[BillingAddress], [i].[BillingCity], [i].[BillingCountry], [i].[BillingState], [i].[BillingZipCode], [i].[CreatedDate], [i].[CustomerId], [i].[DueDate], [i].[EmailSent], [i].[EmailSentDate], [i].[InvoiceDate], [i].[InvoiceNumber], [i].[Notes], [i].[ShippingAddress], [i].[ShippingCity], [i].[ShippingCountry], [i].[ShippingState], [i].[ShippingZipCode], [i].[Status], [i].[Subtotal], [i].[TaxAmount], [i].[TaxRate], [i].[TotalAmount], [i].[UpdatedDate], [c].[CustomerId], [c].[BillingAddress], [c].[City], [c].[Country], [c].[CreatedDate], [c].[Email], [c].[FirstName], [c].[LastName], [c].[Phone], [c].[ShippingAddress], [c].[ShippingCity], [c].[ShippingCountry], [c].[ShippingState], [c].[ShippingZipCode], [c].[State], [c].[UpdatedDate], [c].[ZipCode], [i1].[InvoiceItemId], [i1].[CreatedDate], [i1].[Description], [i1].[DiscountAmount], [i1].[DiscountPercentage], [i1].[InvoiceId], [i1].[LineTotal], [i1].[ProductName], [i1].[Quantity], [i1].[Unit], [i1].[UnitPrice]
+      FROM [Invoices] AS [i]
+      INNER JOIN [Customers] AS [c] ON [i].[CustomerId] = [c].[CustomerId]
+      LEFT JOIN [InvoiceItems] AS [i1] ON [i].[InvoiceId] = [i1].[InvoiceId]
+      WHERE [i].[InvoiceId] IN (
+          SELECT [i0].[value]
+          FROM OPENJSON(@__invoiceIds_0) WITH ([value] int '$') AS [i0]
+      )
+      ORDER BY [i].[InvoiceId], [c].[CustomerId]
+warn: InvoicingSystem.Data.ApiKeyAuthenticationMiddleware[0]
+      Unauthorized API Key attempted access to /api/customers
+info: InvoicingSystem.Data.ApiKeyAuthenticationMiddleware[0]
+      Successful API Key authentication for /api/customers
+info: InvoicingSystem.Data.ApiKeyAuthenticationMiddleware[0]
+      Successful API Key authentication for /api/invoices/test-email
+info: InvoicingSystem.Services.EmailService[0]
+      SIMULATION: Test email would be sent to test@example.com
+info: InvoicingSystem.Services.EmailService[0]
+      SIMULATION: Test email successfully sent to test@example.com
+info: InvoicingSystem.Data.ApiKeyAuthenticationMiddleware[0]
+      Successful API Key authentication for /api/customers
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (91ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      SELECT [c].[CustomerId], [c].[BillingAddress], [c].[City], [c].[Country], [c].[CreatedDate], [c].[Email], [c].[FirstName], [c].[LastName], [c].[Phone], [c].[ShippingAddress], [c].[ShippingCity], [c].[ShippingCountry], [c].[ShippingState], [c].[ShippingZipCode], [c].[State], [c].[UpdatedDate], [c].[ZipCode]
+      FROM [Customers] AS [c]
+      ORDER BY [c].[LastName], [c].[FirstName]
