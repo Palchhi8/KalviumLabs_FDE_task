@@ -29,9 +29,11 @@ A simple invoicing system built with ASP.NET Core 8 and SQL Server for managing 
 
 ### Setup
 1. Clone the repository
+   
 2.The recipient can regenerate the removed folders by running:
 dotnet restore
 dotnet build
+
 
 3. Update database: `dotnet ef database update`
 4. Run the application: `dotnet run`
